@@ -47,7 +47,7 @@ function update() {
 	}
 	context.fillStyle = "rgba(0,0,0,0.09)";
 	context.fillRect(0, 0, window.innerWidth, window.innerHeight);
-	for (let i = 0; i < fallingCharArr.length && frames % 2 == 0; i++) {
+	for (let i = 0; i < fallingCharArr.length && frames % 2 === 0; i++) {
 		fallingCharArr[i].draw(context);
 	}
 	requestAnimationFrame(update);
