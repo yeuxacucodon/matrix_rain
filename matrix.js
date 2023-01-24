@@ -4,7 +4,7 @@ const context = canvas.getContext("2d");
 canvas.width = window.innerWidth;
 canvas.height = window.innerHeight;
 
-let charArr = ["0", "1", "a", "b", "c", "s"];
+let charArr = ["1", "0"];
 
 let maxCharCount = 300;
 let fallingCharArr = [];
@@ -14,6 +14,10 @@ let maxColumns = window.innerWidth / fontSize;
 let frames = 0;
 let off;
 
+function randomRange(min, max) {
+  return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+
 class FallingChar {
   constructor(x, y) {
     this.x = x;
@@ -21,9 +25,8 @@ class FallingChar {
   }
 
   draw(context) {
-    this.value =
-      charArr[Math.floor(Math.random() * (charArr.length - 1))].toUpperCase();
-    this.speed = (Math.random() * fontSize * 3) / 4 + (fontSize * 3) / 4;
+    this.value = charArr[randomRange(0, charArr.length - 1)];
+    this.speed = (Math.random() * fontSize * 3) / 4 + (fontSize * 3) / 10;
     context.fillStyle = "#00FF00";
     context.font = `${fontSize}px sans-serif`;
     context.fillText(this.value, this.x, this.y);
@@ -32,7 +35,7 @@ class FallingChar {
     if (this.y > window.innerHeight) {
       this.y = (Math.random() * window.innerHeight) / 2 - 50;
       this.x = Math.floor(Math.random() * maxColumns) * fontSize;
-      this.speed = (-Math.random() * fontSize * 3) / 4 + (fontSize * 3) / 4;
+      this.speed = (-Math.random() * fontSize * 3) / 4 + (fontSize * 3) / 10;
     }
   }
 }
