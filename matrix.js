@@ -23,7 +23,7 @@ window.addEventListener(
     canvas.width = cw;
     canvas.height = ch;
     maxColumns = cw / fontSize;
-    console.log(cw, ch);
+    // console.log(cw, ch);
   },
   true
 );
